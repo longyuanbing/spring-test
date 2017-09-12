@@ -1,4 +1,4 @@
-package com.yuandu.test;
+package com.yuandu;
 
 
 import org.springframework.boot.SpringApplication;
