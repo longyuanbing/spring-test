@@ -1,6 +1,6 @@
 package com.yuandu;
 
-import com.yuandu.test.mapperscan.MapperScanner;
+import com.yuandu.mybatis.scan.MapperScanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
