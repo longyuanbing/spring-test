@@ -1,14 +1,24 @@
 package com.yuandu;
 
-
-import org.mybatis.spring.annotation.MapperScan;
+import com.yuandu.test.mapperscan.MapperScanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
-@MapperScan(basePackages="com.yuandu")
+@Configuration
+@MapperScanner(basePackages = { "${mybatis.mapperLocations}"})
 public class TestApp {
+
     public static void main(String[] args){
-        SpringApplication.run(TestApp.class, args);
+        SpringApplication application = new SpringApplication(TestApp.class);
+        Map<String, Object> defaultProperties = new HashMap<>();
+        //defaultProperties.put("db.mybatis.mapperScanner.basePackage", "com.yuandu.user.dao.mapper");
+        application.setDefaultProperties(defaultProperties);
+        application.setWebEnvironment(true);
+        application.run(args);
     }
 }
